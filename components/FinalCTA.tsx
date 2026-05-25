@@ -79,7 +79,8 @@ export function FinalCTA() {
         <div
           style={{
             marginTop: 56,
-            display: 'inline-flex',
+            display: 'flex',
+            justifyContent: 'center',
             alignItems: 'center',
             gap: 10,
             color: 'rgba(242,239,232,0.45)',
