@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { L, FONT, MONO, WAITLIST_URL, WAITLIST_COUNT } from '@/lib/tokens';
+import { L, FONT, MONO, WAITLIST_URL, WAITLIST_EMAIL_ENTRY, WAITLIST_COUNT } from '@/lib/tokens';
 import { Chip } from './Atoms';
 import { HeroPreview } from './HeroPreview';
 
@@ -11,7 +11,7 @@ function WaitlistForm() {
   const handle = (e: React.FormEvent) => {
     e.preventDefault();
     const url = email
-      ? `${WAITLIST_URL}?email=${encodeURIComponent(email)}`
+      ? `${WAITLIST_URL}?usp=pp_url&${WAITLIST_EMAIL_ENTRY}=${encodeURIComponent(email)}`
       : WAITLIST_URL;
     window.open(url, '_blank', 'noopener');
   };

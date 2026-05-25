@@ -24,5 +24,7 @@ export const L = {
 export const FONT = '-apple-system, "SF Pro Display", "SF Pro Text", system-ui, sans-serif';
 export const MONO = '"SF Mono", ui-monospace, "JetBrains Mono", Menlo, monospace';
 
-export const WAITLIST_URL = 'https://forms.gle/placeholder';
+export const WAITLIST_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSf-8Qh2yRPuGV2rN67kaWelTE2XnQbDPb4zsJTX_vvsiyELDg/viewform';
+export const WAITLIST_EMAIL_ENTRY = 'entry.860148152';
 export const WAITLIST_COUNT = 1247;
