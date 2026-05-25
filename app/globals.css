@@ -11,6 +11,9 @@ html, body {
   color: #14120E;
   margin: 0;
   padding: 0;
+  /* Safety net: never allow horizontal scroll on any device */
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -28,7 +31,11 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Responsive */
+img, svg {
+  max-width: 100%;
+}
+
+/* ───────────── Tablet / collapse (≤ 900px) ───────────── */
 @media (max-width: 900px) {
   .nav-links {
     display: none !important;
@@ -36,24 +43,32 @@ a {
   .nav-inner {
     padding: 14px 20px !important;
   }
+  /* minmax(0, 1fr) lets the single column shrink below its content's
+     min-content width instead of forcing horizontal overflow */
   .hero-section {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     padding: 48px 20px 40px !important;
     gap: 40px !important;
   }
+  .hero-section > div {
+    min-width: 0;
+  }
   .manifesto-grid {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     padding: 28px 20px !important;
   }
   .features-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
   .scene-row {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     gap: 32px !important;
   }
+  .scene-row > div {
+    min-width: 0;
+  }
   .how-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
   .how-grid > div {
     padding: 28px 0 !important;
@@ -61,12 +76,88 @@ a {
     border-bottom: 0.5px solid rgba(20, 18, 14, 0.08);
   }
   .footer-grid {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  #features {
+    padding: 88px 20px 60px !important;
+  }
+  #how {
+    padding: 88px 20px 72px !important;
   }
   #ai > div {
     padding: 80px 20px !important;
   }
   #founders > div {
     padding: 80px 20px !important;
+  }
+  .final-cta-inner {
+    padding: 96px 20px !important;
+  }
+}
+
+/* ───────────── Phone (≤ 600px) ───────────── */
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 32px 18px 28px !important;
+    gap: 28px !important;
+  }
+  /* Hero headline is 64px+ by default — too large for a phone */
+  .hero-section h1 {
+    font-size: clamp(40px, 13vw, 60px) !important;
+    letter-spacing: -2px !important;
+  }
+  .hero-section p {
+    font-size: 17px !important;
+  }
+  /* Bring the floating callout into normal flow so it can't overflow */
+  .hero-note {
+    position: static !important;
+    max-width: 100% !important;
+    margin-top: 16px !important;
+    box-shadow: none !important;
+  }
+
+  .manifesto-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  #features, #how {
+    padding: 64px 18px 48px !important;
+  }
+  #ai > div, #founders > div {
+    padding: 64px 18px !important;
+  }
+
+  /* Big section headings: scale down their clamp minimums */
+  #features h2, #ai h2, #how h2 {
+    font-size: clamp(32px, 9vw, 44px) !important;
+    letter-spacing: -1.2px !important;
+  }
+  #founders h2 {
+    font-size: clamp(30px, 8vw, 40px) !important;
+    letter-spacing: -1px !important;
+  }
+  .scene-row h3 {
+    font-size: 30px !important;
+    letter-spacing: -1px !important;
+  }
+
+  /* AI moment cards: tighten padding on small screens */
+  .scene-row > div:last-child {
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+
+  /* Final CTA */
+  .final-cta-inner {
+    padding: 72px 18px !important;
+  }
+  .final-cta h2 {
+    font-size: clamp(40px, 13vw, 56px) !important;
+    letter-spacing: -2px !important;
+  }
+  .final-cta p {
+    font-size: 17px !important;
   }
 }

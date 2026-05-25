@@ -4,8 +4,9 @@ import { L, FONT, MONO, WAITLIST_URL, WAITLIST_COUNT } from '@/lib/tokens';
 
 export function FinalCTA() {
   return (
-    <section style={{ background: L.ink, color: L.bg }}>
+    <section className="final-cta" style={{ background: L.ink, color: L.bg }}>
       <div
+        className="final-cta-inner"
         style={{
           maxWidth: 1240,
           margin: '0 auto',

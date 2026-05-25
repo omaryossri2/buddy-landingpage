@@ -172,9 +172,10 @@ export function Hero() {
         </div>
       </div>
 
-      <div style={{ position: 'relative' }}>
+      <div className="hero-preview-col" style={{ position: 'relative' }}>
         <HeroPreview />
         <div
+          className="hero-note"
           style={{
             position: 'absolute',
             bottom: -28,
