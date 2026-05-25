@@ -2,26 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: #FAFAF7;
+  color: #14120E;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+::selection {
+  background: rgba(194, 99, 47, 0.22);
+  color: #14120E;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-inner {
+    padding: 14px 20px !important;
+  }
+  .hero-section {
+    grid-template-columns: 1fr !important;
+    padding: 48px 20px 40px !important;
+    gap: 40px !important;
+  }
+  .manifesto-grid {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 28px 20px !important;
+  }
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .scene-row {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .how-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .how-grid > div {
+    padding: 28px 0 !important;
+    border-right: none !important;
+    border-bottom: 0.5px solid rgba(20, 18, 14, 0.08);
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  #ai > div {
+    padding: 80px 20px !important;
+  }
+  #founders > div {
+    padding: 80px 20px !important;
   }
 }
