@@ -1,9 +1,11 @@
 'use client';
 
 import { L, FONT } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { AIBar, EventRow } from './Atoms';
 
 export function HeroPreview() {
+  const { t } = useLang();
   return (
     <div
       style={{
@@ -27,7 +29,7 @@ export function HeroPreview() {
           textTransform: 'uppercase',
         }}
       >
-        Thursday · May 22
+        {t.preview.date}
       </div>
       <h2
         style={{
@@ -39,9 +41,9 @@ export function HeroPreview() {
           color: L.ink,
         }}
       >
-        Good morning,
+        {t.preview.greeting1}
         <br />
-        <span style={{ color: L.inkMid }}>Amelia.</span>
+        <span style={{ color: L.inkMid }}>{t.preview.greeting2}</span>
       </h2>
 
       <div
@@ -79,7 +81,7 @@ export function HeroPreview() {
               textTransform: 'uppercase',
             }}
           >
-            Buddy&apos;s brief
+            {t.preview.briefLabel}
           </div>
         </div>
         <div
@@ -91,31 +93,20 @@ export function HeroPreview() {
             color: L.ink,
           }}
         >
-          Light day ahead.{' '}
-          <span style={{ color: L.inkSoft }}>One class, two essays due Friday, and</span> budget is
-          on track at <span style={{ color: L.ink }}>$34 of $80</span>.
+          {t.preview.brief1}
+          <span style={{ color: L.inkSoft }}>{t.preview.brief2}</span>
+          {t.preview.brief3}
+          <span style={{ color: L.ink }}>{t.preview.brief4}</span>.
         </div>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 16 }}>
-        <EventRow
-          time="10:30"
-          dur="80m"
-          title="Statistics 201"
-          sub="Hall B · Prof. Larsen"
-          locked
-        />
-        <EventRow time="13:00" dur="45m" title="Coffee with Maya" sub="Toby's, Storgata" />
-        <EventRow
-          time="15:30"
-          dur="2h"
-          title="Essay block — History"
-          sub="AI-suggested · flexible"
-          flex
-        />
+        <EventRow time="10:30" dur="80m" title={t.preview.ev1Title} sub={t.preview.ev1Sub} locked />
+        <EventRow time="13:00" dur="45m" title={t.preview.ev2Title} sub={t.preview.ev2Sub} />
+        <EventRow time="15:30" dur="2h" title={t.preview.ev3Title} sub={t.preview.ev3Sub} flex />
       </div>
 
-      <AIBar value="Move my essay block to Friday morning" />
+      <AIBar value={t.preview.aiBar} />
     </div>
   );
 }

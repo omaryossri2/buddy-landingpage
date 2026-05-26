@@ -1,9 +1,10 @@
 'use client';
 
 import { L, FONT } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { BuddyLogo } from './Atoms';
 
-function FooterCol({ title, links }: { title: string; links: string[] }) {
+function FooterCol({ title, links }: { title: string; links: readonly string[] }) {
   return (
     <div>
       <div
@@ -41,6 +42,7 @@ function FooterCol({ title, links }: { title: string; links: string[] }) {
 }
 
 export function Footer() {
+  const { t } = useLang();
   return (
     <footer
       style={{
@@ -70,9 +72,7 @@ export function Footer() {
             }}
           >
             <BuddyLogo size={28} />
-            <span
-              style={{ fontSize: 17, fontWeight: 600, letterSpacing: -0.4, fontFamily: FONT }}
-            >
+            <span style={{ fontSize: 17, fontWeight: 600, letterSpacing: -0.4, fontFamily: FONT }}>
               Buddy
             </span>
           </div>
@@ -85,14 +85,11 @@ export function Footer() {
               lineHeight: 1.5,
             }}
           >
-            A calm personal AI for your time, money, and tasks. Made in Cairo.
+            {t.footer.tagline}
           </div>
         </div>
-        <FooterCol
-          title="Product"
-          links={['Features', 'AI moments', 'How it works', 'Widgets']}
-        />
-        <FooterCol title="Follow" links={['Instagram', 'Email us']} />
+        <FooterCol title={t.footer.productTitle} links={t.footer.product} />
+        <FooterCol title={t.footer.followTitle} links={t.footer.follow} />
       </div>
       <div
         style={{
@@ -107,9 +104,9 @@ export function Footer() {
           letterSpacing: -0.1,
         }}
       >
-        <span>© 2026 Buddy Labs</span>
+        <span>{t.footer.copyright}</span>
         <span style={{ fontFamily: '"SF Mono", ui-monospace, Menlo, monospace' }}>
-          iOS · Coming summer 2026
+          {t.footer.coming}
         </span>
       </div>
     </footer>

@@ -1,27 +1,12 @@
 'use client';
 
 import { L, FONT, MONO } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { Eyebrow } from './Atoms';
 
-const steps = [
-  {
-    n: '01',
-    title: 'Tell Buddy your week.',
-    body: 'Connect your calendar. Mark a few things as locked. Buddy reads the rest.',
-  },
-  {
-    n: '02',
-    title: 'Ask. In any phrasing.',
-    body: '"Move my essay to Friday." "I spent twenty bucks on lunch." It gets it. Asks when it doesn\'t.',
-  },
-  {
-    n: '03',
-    title: 'Open the app less.',
-    body: "Widgets, notifications, and a calm morning brief mean you stop checking. That's the goal.",
-  },
-];
-
 export function HowItWorks() {
+  const { t } = useLang();
+  const nums = ['01', '02', '03'];
   return (
     <section
       id="how"
@@ -32,7 +17,7 @@ export function HowItWorks() {
         fontFamily: FONT,
       }}
     >
-      <Eyebrow>How it works</Eyebrow>
+      <Eyebrow>{t.how.eyebrow}</Eyebrow>
       <h2
         style={{
           margin: '14px 0 64px',
@@ -44,8 +29,8 @@ export function HowItWorks() {
           maxWidth: 900,
         }}
       >
-        Three steps.{' '}
-        <span style={{ color: L.inkSoft }}>That&apos;s it.</span>
+        {t.how.h2a}
+        <span style={{ color: L.inkSoft }}>{t.how.h2b}</span>
       </h2>
       <div
         className="how-grid"
@@ -56,14 +41,13 @@ export function HowItWorks() {
           borderTop: `0.5px solid ${L.lineStrong}`,
         }}
       >
-        {steps.map((s, i) => (
+        {t.how.steps.map((s, i) => (
           <div
             key={i}
-            className={i > 0 ? 'how-step-padded' : ''}
             style={{
               padding: '36px 28px 36px 0',
-              borderRight: i < 2 ? `0.5px solid ${L.line}` : 'none',
-              paddingLeft: i === 0 ? 0 : 28,
+              borderInlineEnd: i < 2 ? `0.5px solid ${L.line}` : 'none',
+              paddingInlineStart: i === 0 ? 0 : 28,
             }}
           >
             <div
@@ -76,7 +60,7 @@ export function HowItWorks() {
                 marginBottom: 16,
               }}
             >
-              {s.n}
+              {nums[i]}
             </div>
             <div
               style={{
@@ -88,7 +72,7 @@ export function HowItWorks() {
                 marginBottom: 10,
               }}
             >
-              {s.title}
+              {s[0]}
             </div>
             <div
               style={{
@@ -98,7 +82,7 @@ export function HowItWorks() {
                 letterSpacing: -0.15,
               }}
             >
-              {s.body}
+              {s[1]}
             </div>
           </div>
         ))}

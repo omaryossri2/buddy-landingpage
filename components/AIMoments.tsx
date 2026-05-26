@@ -2,47 +2,25 @@
 
 import { ComponentType } from 'react';
 import { L, FONT } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { Eyebrow } from './Atoms';
 import { SceneConflict, SceneFinance, SceneAIMove, SceneBooking } from './Scenes';
 
-interface SceneItem {
+const SCENES: ComponentType[] = [SceneConflict, SceneFinance, SceneAIMove, SceneBooking];
+
+function SceneRow({
+  tag,
+  title,
+  body,
+  Scene,
+  reverse,
+}: {
   tag: string;
   title: string;
   body: string;
   Scene: ComponentType;
   reverse?: boolean;
-}
-
-const scenes: SceneItem[] = [
-  {
-    tag: '01 · Conflict',
-    title: 'Asks before it overwrites.',
-    body: "When you ask for time that's already taken, Buddy offers three real options — no buried \"are you sure\" dialogs.",
-    Scene: SceneConflict,
-  },
-  {
-    tag: '02 · Voice → ledger',
-    title: 'Speak a receipt into existence.',
-    body: 'Say it in any phrasing. Buddy parses the amount, picks a category, shows your daily total, asks if it got it right.',
-    Scene: SceneFinance,
-    reverse: true,
-  },
-  {
-    tag: '03 · Focus blocks',
-    title: 'Knows when you actually think.',
-    body: 'Buddy learns your high-focus window from the times you mark "energy: peak" and only suggests deep work there.',
-    Scene: SceneAIMove,
-  },
-  {
-    tag: '04 · Meeting link',
-    title: 'Booking, in one sentence.',
-    body: 'No separate scheduling app. Three slots, your timezone, their timezone, sent. Buddy holds the slots until they pick one.',
-    Scene: SceneBooking,
-    reverse: true,
-  },
-];
-
-function SceneRow({ tag, title, body, Scene, reverse }: SceneItem) {
+}) {
   return (
     <div
       className="scene-row"
@@ -99,6 +77,7 @@ function SceneRow({ tag, title, body, Scene, reverse }: SceneItem) {
 }
 
 export function AIMoments() {
+  const { t } = useLang();
   return (
     <section
       id="ai"
@@ -116,7 +95,7 @@ export function AIMoments() {
           fontFamily: FONT,
         }}
       >
-        <Eyebrow>AI moments</Eyebrow>
+        <Eyebrow>{t.ai.eyebrow}</Eyebrow>
         <h2
           style={{
             margin: '14px 0 14px',
@@ -128,9 +107,9 @@ export function AIMoments() {
             maxWidth: 1000,
           }}
         >
-          Four conversations that happen
+          {t.ai.h2a}
           <br />
-          <span style={{ color: L.inkSoft }}>every week.</span>
+          <span style={{ color: L.inkSoft }}>{t.ai.h2b}</span>
         </h2>
         <p
           style={{
@@ -142,13 +121,19 @@ export function AIMoments() {
             marginTop: 0,
           }}
         >
-          The AI doesn&apos;t live behind a button. It lives at the bottom of every screen, in the
-          data it already has, with all the context you&apos;ve ever given it.
+          {t.ai.intro}
         </p>
 
         <div style={{ marginTop: 72, display: 'flex', flexDirection: 'column', gap: 96 }}>
-          {scenes.map((s, i) => (
-            <SceneRow key={i} {...s} />
+          {t.ai.scenes.map((sc, i) => (
+            <SceneRow
+              key={i}
+              tag={sc.tag}
+              title={sc.title}
+              body={sc.body}
+              Scene={SCENES[i]}
+              reverse={i % 2 === 1}
+            />
           ))}
         </div>
       </div>

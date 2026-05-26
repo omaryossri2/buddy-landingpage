@@ -1,8 +1,10 @@
 'use client';
 
 import { L, FONT, MONO, WAITLIST_URL, WAITLIST_COUNT } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 
 export function FinalCTA() {
+  const { t } = useLang();
   return (
     <section className="final-cta" style={{ background: L.ink, color: L.bg }}>
       <div
@@ -24,7 +26,7 @@ export function FinalCTA() {
             textTransform: 'uppercase',
           }}
         >
-          iOS · 2026
+          {t.finalCta.platform}
         </div>
         <h2
           style={{
@@ -37,9 +39,9 @@ export function FinalCTA() {
             maxWidth: 1000,
           }}
         >
-          One quiet place,
+          {t.finalCta.h2a}
           <br />
-          <span style={{ color: 'rgba(242,239,232,0.45)' }}>finally.</span>
+          <span style={{ color: 'rgba(242,239,232,0.45)' }}>{t.finalCta.h2b}</span>
         </h2>
         <p
           style={{
@@ -51,7 +53,7 @@ export function FinalCTA() {
             lineHeight: 1.5,
           }}
         >
-          Get on the waitlist. We&apos;ll send one email when Buddy is ready &mdash; nothing else.
+          {t.finalCta.paragraph}
         </p>
 
         <a
@@ -73,7 +75,7 @@ export function FinalCTA() {
             textDecoration: 'none',
           }}
         >
-          Join the waitlist
+          {t.finalCta.button}
           <span style={{ fontFamily: MONO, color: L.warm, fontSize: 14 }}>→</span>
         </a>
 
@@ -102,7 +104,7 @@ export function FinalCTA() {
             <span style={{ color: L.bg, fontWeight: 600, fontVariantNumeric: 'tabular-nums' }}>
               {WAITLIST_COUNT.toLocaleString()}
             </span>{' '}
-            people waiting · iOS first, Android later
+            {t.finalCta.counterSuffix}
           </span>
         </div>
       </div>

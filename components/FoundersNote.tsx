@@ -1,9 +1,11 @@
 'use client';
 
 import { L, FONT, MONO } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { Eyebrow } from './Atoms';
 
 export function FoundersNote() {
+  const { t } = useLang();
   return (
     <section
       id="founders"
@@ -20,7 +22,7 @@ export function FoundersNote() {
           fontFamily: FONT,
         }}
       >
-        <Eyebrow>From the founders</Eyebrow>
+        <Eyebrow>{t.founders.eyebrow}</Eyebrow>
         <h2
           style={{
             margin: '14px 0 28px',
@@ -31,8 +33,8 @@ export function FoundersNote() {
             color: L.ink,
           }}
         >
-          We were tired of apps that{' '}
-          <span style={{ color: L.inkSoft }}>shout for attention.</span>
+          {t.founders.h2a}
+          <span style={{ color: L.inkSoft }}>{t.founders.h2b}</span>
         </h2>
         <div
           style={{
@@ -42,22 +44,9 @@ export function FoundersNote() {
             letterSpacing: -0.2,
           }}
         >
-          <p style={{ marginTop: 0 }}>
-            Calendars expect you to plan. Budget apps expect you to log. To-do apps expect you to
-            remember to open them. Each one is fine on its own. Together, they&apos;re a tax on
-            attention.
-          </p>
-          <p>
-            Buddy is the small, calm assistant we wanted for ourselves &mdash; one that knows your
-            meetings, your money and your tasks all at once, and only speaks up when it has
-            something useful to say. It looks like an app, but it behaves like a person you trust
-            with the boring parts of your life.
-          </p>
-          <p style={{ color: L.ink }}>
-            We&apos;re building it slowly, on iOS first, with a few hundred friends. If you&apos;d
-            like an early invite, drop your email below. We&apos;ll be quiet until we have
-            something worth showing you.
-          </p>
+          <p style={{ marginTop: 0 }}>{t.founders.p1}</p>
+          <p>{t.founders.p2}</p>
+          <p style={{ color: L.ink }}>{t.founders.p3}</p>
         </div>
         <div
           style={{
@@ -94,10 +83,10 @@ export function FoundersNote() {
                 letterSpacing: -0.1,
               }}
             >
-              Fady &amp; Omar
+              {t.founders.names}
             </div>
             <div style={{ fontSize: 13, color: L.inkSoft, letterSpacing: -0.1 }}>
-              Co-founders · Cairo
+              {t.founders.role}
             </div>
           </div>
         </div>

@@ -1,15 +1,10 @@
 'use client';
 
 import { L, FONT } from '@/lib/tokens';
-
-const items: [string, string][] = [
-  ['Plans your week', "so you don't have to."],
-  ['Tracks your money', 'without scolding.'],
-  ['Talks like a person', 'not a chatbot.'],
-  ['Stays out of the way', 'until you need it.'],
-];
+import { useLang } from '@/lib/i18n';
 
 export function ManifestoStrip() {
+  const { t } = useLang();
   return (
     <section
       style={{
@@ -30,7 +25,7 @@ export function ManifestoStrip() {
           fontFamily: FONT,
         }}
       >
-        {items.map(([h, s]) => (
+        {t.manifesto.map(([h, s]) => (
           <div key={h}>
             <div
               style={{

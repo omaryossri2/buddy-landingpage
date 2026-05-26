@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import { L, FONT, MONO, WAITLIST_URL, WAITLIST_EMAIL_ENTRY, WAITLIST_COUNT } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { Chip } from './Atoms';
 import { HeroPreview } from './HeroPreview';
 
 function WaitlistForm() {
+  const { t } = useLang();
   const [email, setEmail] = useState('');
 
   const handle = (e: React.FormEvent) => {
@@ -27,7 +29,7 @@ function WaitlistForm() {
         border: `1px solid ${L.lineStrong}`,
         borderRadius: 30,
         padding: 6,
-        paddingLeft: 22,
+        paddingInlineStart: 22,
         maxWidth: 460,
         boxShadow:
           '0 1px 0 rgba(20,18,14,0.02), 0 12px 28px -16px rgba(20,18,14,0.18)',
@@ -36,7 +38,7 @@ function WaitlistForm() {
       <input
         type="email"
         required
-        placeholder="you@elsewhere.com"
+        placeholder={t.hero.emailPlaceholder}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         style={{
@@ -69,13 +71,14 @@ function WaitlistForm() {
           whiteSpace: 'nowrap',
         }}
       >
-        Join waitlist →
+        {t.hero.joinBtn}
       </button>
     </form>
   );
 }
 
 export function Hero() {
+  const { t } = useLang();
   const avatarColors = [L.ink, L.warm, L.cool, '#7a3d1a'];
 
   return (
@@ -95,8 +98,8 @@ export function Hero() {
     >
       <div>
         <div style={{ display: 'flex', gap: 8, marginBottom: 28 }}>
-          <Chip tone="warm">iOS · 2026</Chip>
-          <Chip tone="outline">Android, eventually</Chip>
+          <Chip tone="warm">{t.hero.chipPlatform}</Chip>
+          <Chip tone="outline">{t.hero.chipAndroid}</Chip>
         </div>
         <h1
           style={{
@@ -108,13 +111,13 @@ export function Hero() {
             color: L.ink,
           }}
         >
-          Your time,
+          {t.hero.titleLine1}
           <br />
-          money, and
+          {t.hero.titleLine2}
           <br />
-          tasks &mdash;
+          {t.hero.titleLine3}
           <br />
-          <span style={{ color: L.inkSoft }}>in one quiet place.</span>
+          <span style={{ color: L.inkSoft }}>{t.hero.titleLine4}</span>
         </h1>
         <p
           style={{
@@ -126,8 +129,7 @@ export function Hero() {
             letterSpacing: -0.2,
           }}
         >
-          Buddy is a calm personal AI that plans your week, watches your spending, and answers in
-          plain English. No streaks. No ads. No noise.
+          {t.hero.paragraph}
         </p>
 
         <WaitlistForm />
@@ -152,7 +154,7 @@ export function Hero() {
                   borderRadius: 11,
                   background: c,
                   border: `1.5px solid ${L.bg}`,
-                  marginLeft: i === 0 ? 0 : -7,
+                  marginInlineStart: i === 0 ? 0 : -7,
                 }}
               />
             ))}
@@ -167,7 +169,7 @@ export function Hero() {
             >
               {WAITLIST_COUNT.toLocaleString()}
             </strong>{' '}
-            people on the waitlist
+            {t.hero.waitlistSuffix}
           </div>
         </div>
       </div>
@@ -179,7 +181,7 @@ export function Hero() {
           style={{
             position: 'absolute',
             bottom: -28,
-            right: -16,
+            insetInlineEnd: -16,
             background: L.ink,
             color: L.bg,
             borderRadius: 14,
@@ -192,7 +194,8 @@ export function Hero() {
             boxShadow: '0 18px 36px -10px rgba(20,18,14,0.25)',
           }}
         >
-          <span style={{ color: L.warm }}>buddy</span> moved 1 event, freed 2.5h Friday morning.
+          <span style={{ color: L.warm }}>{t.hero.note[0]}</span>
+          {t.hero.note[1]}
         </div>
       </div>
     </section>

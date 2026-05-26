@@ -2,6 +2,7 @@
 
 import { ComponentType } from 'react';
 import { L, FONT } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { Chip, Eyebrow } from './Atoms';
 import {
   IllLockedFlex,
@@ -12,53 +13,26 @@ import {
   IllPrivacy,
 } from './Illustrations';
 
-interface FeatureItem {
+const ILLS: ComponentType[] = [
+  IllLockedFlex,
+  IllAIBar,
+  IllMoney,
+  IllWidgets,
+  IllBooking,
+  IllPrivacy,
+];
+
+function FeatureTile({
+  tag,
+  title,
+  body,
+  Ill,
+}: {
   tag: string;
   title: string;
   body: string;
   Ill: ComponentType;
-}
-
-const items: FeatureItem[] = [
-  {
-    tag: 'Time',
-    title: 'Locked vs flexible.',
-    body: "Class at 10? Locked. Essay block? Flexible. Buddy treats them differently — and moves only the things that can move.",
-    Ill: IllLockedFlex,
-  },
-  {
-    tag: 'AI',
-    title: 'Inline, not a chatbot.',
-    body: 'The input bar sits at the bottom of every screen. Type, tap, or speak — answers appear right where the data lives.',
-    Ill: IllAIBar,
-  },
-  {
-    tag: 'Money',
-    title: 'Spending it watches.',
-    body: 'Link accounts or text receipts. Buddy categorises, sums, and warns gently before you blow the month.',
-    Ill: IllMoney,
-  },
-  {
-    tag: 'Glance',
-    title: 'Widgets that earn their square.',
-    body: "Next event and today's spend on the lock screen. Tiny timeline and budget bar on home. No fluff.",
-    Ill: IllWidgets,
-  },
-  {
-    tag: 'Booking',
-    title: 'A meeting link that\'s yours.',
-    body: 'Pick three slots, share a link. The other side sees their timezone — Buddy keeps yours straight.',
-    Ill: IllBooking,
-  },
-  {
-    tag: 'Pledge',
-    title: 'No streaks. No ads.',
-    body: 'No habit traps, no engagement metrics, no third-party SDKs. Your data lives on your device.',
-    Ill: IllPrivacy,
-  },
-];
-
-function FeatureTile({ tag, title, body, Ill }: FeatureItem) {
+}) {
   return (
     <div
       style={{
@@ -105,6 +79,7 @@ function FeatureTile({ tag, title, body, Ill }: FeatureItem) {
 }
 
 export function Features() {
+  const { t } = useLang();
   return (
     <section
       id="features"
@@ -115,7 +90,7 @@ export function Features() {
         fontFamily: FONT,
       }}
     >
-      <Eyebrow>What it does</Eyebrow>
+      <Eyebrow>{t.features.eyebrow}</Eyebrow>
       <h2
         style={{
           margin: '14px 0 0',
@@ -127,8 +102,8 @@ export function Features() {
           maxWidth: 900,
         }}
       >
-        Six pieces, designed to feel like{' '}
-        <span style={{ color: L.inkSoft }}>one app.</span>
+        {t.features.h2a}
+        <span style={{ color: L.inkSoft }}>{t.features.h2b}</span>
       </h2>
       <div
         className="features-grid"
@@ -139,8 +114,8 @@ export function Features() {
           gap: 16,
         }}
       >
-        {items.map((it, i) => (
-          <FeatureTile key={i} {...it} />
+        {t.features.items.map((it, i) => (
+          <FeatureTile key={i} tag={it.tag} title={it.title} body={it.body} Ill={ILLS[i]} />
         ))}
       </div>
     </section>

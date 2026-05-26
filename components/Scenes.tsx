@@ -1,17 +1,15 @@
 'use client';
 
 import { L, FONT, MONO } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { AIBar, Chip, EventRow, Money } from './Atoms';
 
 export function SceneConflict() {
-  const options = [
-    { k: 'A', t: 'Move dentist to Friday 2pm', sub: 'You have free time' },
-    { k: 'B', t: 'Schedule it Thursday 4pm', sub: 'Right after class' },
-    { k: 'C', t: "Just add it — I'll resolve later", sub: 'Marked as conflict' },
-  ];
+  const { t } = useLang();
+  const s = t.sceneConflict;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-      <AIBar value='"Add a dentist appointment Thursday at 2pm"' />
+      <AIBar value={s.aiBar} />
       <div
         style={{
           background: L.surface,
@@ -21,23 +19,8 @@ export function SceneConflict() {
           fontFamily: FONT,
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            marginBottom: 12,
-          }}
-        >
-          <div
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              background: L.warm,
-              flexShrink: 0,
-            }}
-          />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: L.warm, flexShrink: 0 }} />
           <div
             style={{
               fontSize: 11,
@@ -47,7 +30,7 @@ export function SceneConflict() {
               textTransform: 'uppercase',
             }}
           >
-            Conflict
+            {s.label}
           </div>
         </div>
         <div
@@ -59,13 +42,14 @@ export function SceneConflict() {
             marginBottom: 14,
           }}
         >
-          You already have <strong style={{ fontWeight: 600 }}>Statistics 201</strong> at 2pm
-          Thursday. Want me to:
+          {s.textA}
+          <strong style={{ fontWeight: 600 }}>{s.textBold}</strong>
+          {s.textB}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {options.map((o) => (
+          {s.opts.map((o, i) => (
             <div
-              key={o.k}
+              key={i}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -92,13 +76,13 @@ export function SceneConflict() {
                   flexShrink: 0,
                 }}
               >
-                {o.k}
+                {['A', 'B', 'C'][i]}
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 14, fontWeight: 500, color: L.ink, letterSpacing: -0.2 }}>
-                  {o.t}
+                  {o[0]}
                 </div>
-                <div style={{ fontSize: 11.5, color: L.inkSoft, marginTop: 1 }}>{o.sub}</div>
+                <div style={{ fontSize: 11.5, color: L.inkSoft, marginTop: 1 }}>{o[1]}</div>
               </div>
             </div>
           ))}
@@ -109,9 +93,11 @@ export function SceneConflict() {
 }
 
 export function SceneFinance() {
+  const { t } = useLang();
+  const s = t.sceneFinance;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-      <AIBar value='"I just spent 14 bucks on dinner with Sam"' />
+      <AIBar value={s.aiBar} />
       <div
         style={{
           background: L.surface,
@@ -121,23 +107,8 @@ export function SceneFinance() {
           fontFamily: FONT,
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            marginBottom: 14,
-          }}
-        >
-          <div
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              background: L.cool,
-              flexShrink: 0,
-            }}
-          />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: L.cool, flexShrink: 0 }} />
           <div
             style={{
               fontSize: 11,
@@ -147,23 +118,16 @@ export function SceneFinance() {
               textTransform: 'uppercase',
             }}
           >
-            New transaction
+            {s.label}
           </div>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 14,
-            marginBottom: 14,
-          }}
-        >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
           <Money amount={14.0} size={36} isNeg />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 14.5, fontWeight: 500, color: L.ink }}>Dinner with Sam</div>
+            <div style={{ fontSize: 14.5, fontWeight: 500, color: L.ink }}>{s.title}</div>
             <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
-              <Chip tone="cool">Food &amp; drink</Chip>
-              <Chip tone="neutral">Today</Chip>
+              <Chip tone="cool">{s.chipCat}</Chip>
+              <Chip tone="neutral">{s.chipToday}</Chip>
             </div>
           </div>
         </div>
@@ -178,13 +142,7 @@ export function SceneFinance() {
           }}
         >
           <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '60%',
-              background: L.cool,
-              borderRadius: 3,
-            }}
+            style={{ position: 'absolute', inset: 0, width: '60%', background: L.cool, borderRadius: 3 }}
           />
         </div>
         <div
@@ -197,9 +155,10 @@ export function SceneFinance() {
           }}
         >
           <span>
-            <span style={{ color: L.ink }}>$48</span> of $80 today
+            <span style={{ color: L.ink }}>$48</span>
+            {s.ofToday}
           </span>
-          <span>$32 left</span>
+          <span>{s.left}</span>
         </div>
         <div
           style={{
@@ -225,7 +184,7 @@ export function SceneFinance() {
               cursor: 'pointer',
             }}
           >
-            Looks right
+            {s.ok}
           </div>
           <div
             style={{
@@ -241,7 +200,7 @@ export function SceneFinance() {
               cursor: 'pointer',
             }}
           >
-            Edit
+            {s.edit}
           </div>
         </div>
       </div>
@@ -250,9 +209,11 @@ export function SceneFinance() {
 }
 
 export function SceneAIMove() {
+  const { t } = useLang();
+  const s = t.sceneMove;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-      <AIBar value='"I need 90 min for the lab report this week"' />
+      <AIBar value={s.aiBar} />
       <div
         style={{
           background: L.surface,
@@ -262,23 +223,8 @@ export function SceneAIMove() {
           fontFamily: FONT,
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            marginBottom: 12,
-          }}
-        >
-          <div
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              background: L.warm,
-              flexShrink: 0,
-            }}
-          />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: L.warm, flexShrink: 0 }} />
           <div
             style={{
               fontSize: 11,
@@ -288,7 +234,7 @@ export function SceneAIMove() {
               textTransform: 'uppercase',
             }}
           >
-            Found a slot
+            {s.label}
           </div>
         </div>
         <div
@@ -300,22 +246,13 @@ export function SceneAIMove() {
             marginBottom: 14,
           }}
         >
-          <span style={{ color: L.inkSoft }}>
-            Wednesday afternoon is open and matches your
-          </span>{' '}
-          high-focus window
+          <span style={{ color: L.inkSoft }}>{s.textA}</span> {s.textHi}
           <span style={{ color: L.inkSoft }}>.</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <EventRow time="11:00" dur="50m" title="BIO 240" sub="Lab · Hall C" locked />
+          <EventRow time="11:00" dur="50m" title={s.ev1[0]} sub={s.ev1[1]} locked />
           <div style={{ position: 'relative' }}>
-            <EventRow
-              time="14:00"
-              dur="90m"
-              title="Lab report — focused block"
-              sub="AI-suggested · matches energy"
-              flex
-            />
+            <EventRow time="14:00" dur="90m" title={s.ev2[0]} sub={s.ev2[1]} flex />
             <div
               style={{
                 position: 'absolute',
@@ -329,7 +266,7 @@ export function SceneAIMove() {
               }}
             />
           </div>
-          <EventRow time="16:30" dur="60m" title="Run · Storgata loop" sub="Personal" />
+          <EventRow time="16:30" dur="60m" title={s.ev3[0]} sub={s.ev3[1]} />
         </div>
       </div>
     </div>
@@ -337,14 +274,11 @@ export function SceneAIMove() {
 }
 
 export function SceneBooking() {
-  const slots = [
-    ['Tue · May 27', '14:00 – 14:30'],
-    ['Wed · May 28', '10:00 – 10:30'],
-    ['Thu · May 29', '15:30 – 16:00'],
-  ];
+  const { t } = useLang();
+  const s = t.sceneBooking;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-      <AIBar value='"Send Maya 3 slots for coffee next week"' />
+      <AIBar value={s.aiBar} />
       <div
         style={{
           background: L.surface,
@@ -354,23 +288,8 @@ export function SceneBooking() {
           fontFamily: FONT,
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            marginBottom: 14,
-          }}
-        >
-          <div
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              background: L.warm,
-              flexShrink: 0,
-            }}
-          />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: L.warm, flexShrink: 0 }} />
           <div
             style={{
               fontSize: 11,
@@ -380,11 +299,11 @@ export function SceneBooking() {
               textTransform: 'uppercase',
             }}
           >
-            Sharable link
+            {s.label}
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
-          {slots.map(([d, t], i) => (
+          {s.slots.map((slot, i) => (
             <div
               key={i}
               style={{
@@ -397,15 +316,8 @@ export function SceneBooking() {
                 borderRadius: 12,
               }}
             >
-              <div
-                style={{
-                  fontSize: 13.5,
-                  fontWeight: 500,
-                  color: L.ink,
-                  letterSpacing: -0.1,
-                }}
-              >
-                {d}
+              <div style={{ fontSize: 13.5, fontWeight: 500, color: L.ink, letterSpacing: -0.1 }}>
+                {slot[0]}
               </div>
               <div
                 style={{
@@ -415,7 +327,7 @@ export function SceneBooking() {
                   fontVariantNumeric: 'tabular-nums',
                 }}
               >
-                {t}
+                {slot[1]}
               </div>
             </div>
           ))}
@@ -440,23 +352,17 @@ export function SceneBooking() {
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',
+              direction: 'ltr',
             }}
           >
             buddy.app/m/amelia-maya
           </div>
-          <Chip tone="warm">Copied</Chip>
+          <Chip tone="warm">{s.copied}</Chip>
         </div>
-        <div
-          style={{
-            fontSize: 11.5,
-            color: L.inkSoft,
-            marginTop: 10,
-            letterSpacing: -0.1,
-          }}
-        >
-          Maya sees the times in{' '}
-          <span style={{ color: L.ink, fontWeight: 500 }}>her timezone</span> — Buddy keeps yours
-          straight.
+        <div style={{ fontSize: 11.5, color: L.inkSoft, marginTop: 10, letterSpacing: -0.1 }}>
+          {s.footA}
+          <span style={{ color: L.ink, fontWeight: 500 }}>{s.footHi}</span>
+          {s.footB}
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import { CSSProperties, ReactNode } from 'react';
 import { L, FONT, MONO } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 
 // ─── BuddyLogo ──────────────────────────────────────────────
 
@@ -161,6 +162,7 @@ export function EventRow({
   flex?: boolean;
   cool?: boolean;
 }) {
+  const { t } = useLang();
   return (
     <div
       style={{
@@ -214,9 +216,9 @@ export function EventRow({
         </div>
         <div style={{ fontSize: 12.5, color: L.inkSoft, marginTop: 2 }}>{sub}</div>
       </div>
-      {flex && <Chip tone="warm">flex</Chip>}
-      {locked && <Chip tone="outline">locked</Chip>}
-      {cool && <Chip tone="cool">finance</Chip>}
+      {flex && <Chip tone="warm">{t.chips.flex}</Chip>}
+      {locked && <Chip tone="outline">{t.chips.locked}</Chip>}
+      {cool && <Chip tone="cool">{t.chips.finance}</Chip>}
     </div>
   );
 }

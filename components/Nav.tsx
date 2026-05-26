@@ -1,6 +1,7 @@
 'use client';
 
 import { L, FONT, WAITLIST_URL } from '@/lib/tokens';
+import { useLang } from '@/lib/i18n';
 import { BuddyLogo } from './Atoms';
 
 const navLink = {
@@ -13,6 +14,7 @@ const navLink = {
 } as const;
 
 export function Nav() {
+  const { t, toggle } = useLang();
   return (
     <nav
       style={{
@@ -54,40 +56,70 @@ export function Nav() {
         </a>
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
           <a href="#features" style={navLink}>
-            Features
+            {t.nav.features}
           </a>
           <a href="#ai" style={navLink}>
-            AI moments
+            {t.nav.aiMoments}
           </a>
           <a href="#how" style={navLink}>
-            How it works
+            {t.nav.howItWorks}
           </a>
           <a href="#founders" style={navLink}>
-            About
+            {t.nav.about}
           </a>
         </div>
-        <a
-          href={WAITLIST_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            background: L.ink,
-            color: L.bg,
-            height: 40,
-            padding: '0 18px',
-            borderRadius: 20,
-            fontSize: 14,
-            fontWeight: 600,
-            textDecoration: 'none',
-            letterSpacing: -0.1,
-            fontFamily: FONT,
-          }}
-        >
-          Join waitlist
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <button
+            onClick={toggle}
+            aria-label="Switch language"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              background: 'transparent',
+              color: L.ink,
+              height: 40,
+              padding: '0 14px',
+              borderRadius: 20,
+              fontSize: 14,
+              fontWeight: 600,
+              letterSpacing: -0.1,
+              cursor: 'pointer',
+              fontFamily: FONT,
+              border: `1px solid ${L.lineStrong}`,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+            </svg>
+            {t.langToggle}
+          </button>
+          <a
+            href={WAITLIST_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              background: L.ink,
+              color: L.bg,
+              height: 40,
+              padding: '0 18px',
+              borderRadius: 20,
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: 'none',
+              letterSpacing: -0.1,
+              fontFamily: FONT,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {t.nav.joinWaitlist}
+          </a>
+        </div>
       </div>
     </nav>
   );
