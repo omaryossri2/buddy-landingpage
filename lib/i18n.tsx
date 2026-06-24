@@ -26,7 +26,7 @@ export const translations = {
       chipAndroid: 'Android, eventually',
       titleLine1: 'Your time,',
       titleLine2: 'money, and',
-      titleLine3: 'tasks -',
+      titleLine3: 'tasks',
       titleLine4: 'in one quiet place.',
       paragraph:
         'Buddy is a calm personal AI that plans your week, watches your spending, and answers in plain English. No streaks. No ads. No noise.',
@@ -48,7 +48,7 @@ export const translations = {
       ev1Sub: 'Hall B · Prof. Larsen',
       ev2Title: 'Coffee with Maya',
       ev2Sub: "Toby's, Storgata",
-      ev3Title: 'Essay block - History',
+      ev3Title: 'Essay block History',
       ev3Sub: 'AI-suggested · flexible',
       aiBar: 'Move my essay block to Friday morning',
     },
@@ -67,12 +67,12 @@ export const translations = {
         {
           tag: 'Time',
           title: 'Locked vs flexible.',
-          body: 'Class at 10? Locked. Essay block? Flexible. Buddy treats them differently - and moves only the things that can move.',
+          body: 'Class at 10? Locked. Essay block? Flexible. Buddy treats them differently and moves only the things that can move.',
         },
         {
           tag: 'AI',
           title: 'Inline, not a chatbot.',
-          body: 'The input bar sits at the bottom of every screen. Type, tap, or speak - answers appear right where the data lives.',
+          body: 'The input bar sits at the bottom of every screen. Type, tap, or speak. Answers appear right where the data lives.',
         },
         {
           tag: 'Money',
@@ -87,7 +87,7 @@ export const translations = {
         {
           tag: 'Booking',
           title: "A meeting link that's yours.",
-          body: 'Pick three slots, share a link. The other side sees their timezone - Buddy keeps yours straight.',
+          body: 'Pick three slots, share a link. The other side sees their timezone. Buddy keeps yours straight.',
         },
         {
           tag: 'Pledge',
@@ -106,7 +106,7 @@ export const translations = {
         {
           tag: '01 · Conflict',
           title: 'Asks before it overwrites.',
-          body: 'When you ask for time that\'s already taken, Buddy offers three real options - no buried "are you sure" dialogs.',
+          body: 'When you ask for time that\'s already taken, Buddy offers three real options. No buried "are you sure" dialogs.',
         },
         {
           tag: '02 · Voice → ledger',
@@ -134,7 +134,7 @@ export const translations = {
       opts: [
         ['Move dentist to Friday 2pm', 'You have free time'],
         ['Schedule it Thursday 4pm', 'Right after class'],
-        ["Just add it - I'll resolve later", 'Marked as conflict'],
+        ["Just add it. I'll resolve later", 'Marked as conflict'],
       ],
     },
     sceneFinance: {
@@ -154,7 +154,7 @@ export const translations = {
       textA: 'Wednesday afternoon is open and matches your',
       textHi: 'high-focus window',
       ev1: ['BIO 240', 'Lab · Hall C'],
-      ev2: ['Lab report - focused block', 'AI-suggested · matches energy'],
+      ev2: ['Lab report focused block', 'AI-suggested · matches energy'],
       ev3: ['Run · Storgata loop', 'Personal'],
     },
     sceneBooking: {
@@ -168,7 +168,7 @@ export const translations = {
       copied: 'Copied',
       footA: 'Maya sees the times in ',
       footHi: 'her timezone',
-      footB: ' - Buddy keeps yours straight.',
+      footB: ' Buddy keeps yours straight.',
     },
     how: {
       eyebrow: 'How it works',
@@ -185,7 +185,7 @@ export const translations = {
       h2a: 'We were tired of apps that ',
       h2b: 'shout for attention.',
       p1: "Calendars expect you to plan. Budget apps expect you to log. To-do apps expect you to remember to open them. Each one is fine on its own. Together, they're a tax on attention.",
-      p2: 'Buddy is the small, calm assistant we wanted for ourselves - one that knows your meetings, your money and your tasks all at once, and only speaks up when it has something useful to say. It looks like an app, but it behaves like a person you trust with the boring parts of your life.',
+      p2: 'Buddy is the small, calm assistant we wanted for ourselves. One that knows your meetings, your money and your tasks all at once, and only speaks up when it has something useful to say. It looks like an app, but it behaves like a person you trust with the boring parts of your life.',
       p3: "We're building it slowly, on iOS first, with a few hundred friends. If you'd like an early invite, drop your email below. We'll be quiet until we have something worth showing you.",
       names: 'Fady & Omar',
       role: 'Co-founders · Cairo',
