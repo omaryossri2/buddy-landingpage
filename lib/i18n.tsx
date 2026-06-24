@@ -26,7 +26,7 @@ export const translations = {
       chipAndroid: 'Android, eventually',
       titleLine1: 'Your time,',
       titleLine2: 'money, and',
-      titleLine3: 'tasks —',
+      titleLine3: 'tasks -',
       titleLine4: 'in one quiet place.',
       paragraph:
         'Buddy is a calm personal AI that plans your week, watches your spending, and answers in plain English. No streaks. No ads. No noise.',
@@ -48,7 +48,7 @@ export const translations = {
       ev1Sub: 'Hall B · Prof. Larsen',
       ev2Title: 'Coffee with Maya',
       ev2Sub: "Toby's, Storgata",
-      ev3Title: 'Essay block — History',
+      ev3Title: 'Essay block - History',
       ev3Sub: 'AI-suggested · flexible',
       aiBar: 'Move my essay block to Friday morning',
     },
@@ -67,12 +67,12 @@ export const translations = {
         {
           tag: 'Time',
           title: 'Locked vs flexible.',
-          body: 'Class at 10? Locked. Essay block? Flexible. Buddy treats them differently — and moves only the things that can move.',
+          body: 'Class at 10? Locked. Essay block? Flexible. Buddy treats them differently - and moves only the things that can move.',
         },
         {
           tag: 'AI',
           title: 'Inline, not a chatbot.',
-          body: 'The input bar sits at the bottom of every screen. Type, tap, or speak — answers appear right where the data lives.',
+          body: 'The input bar sits at the bottom of every screen. Type, tap, or speak - answers appear right where the data lives.',
         },
         {
           tag: 'Money',
@@ -87,7 +87,7 @@ export const translations = {
         {
           tag: 'Booking',
           title: "A meeting link that's yours.",
-          body: 'Pick three slots, share a link. The other side sees their timezone — Buddy keeps yours straight.',
+          body: 'Pick three slots, share a link. The other side sees their timezone - Buddy keeps yours straight.',
         },
         {
           tag: 'Pledge',
@@ -106,7 +106,7 @@ export const translations = {
         {
           tag: '01 · Conflict',
           title: 'Asks before it overwrites.',
-          body: 'When you ask for time that\'s already taken, Buddy offers three real options — no buried "are you sure" dialogs.',
+          body: 'When you ask for time that\'s already taken, Buddy offers three real options - no buried "are you sure" dialogs.',
         },
         {
           tag: '02 · Voice → ledger',
@@ -134,7 +134,7 @@ export const translations = {
       opts: [
         ['Move dentist to Friday 2pm', 'You have free time'],
         ['Schedule it Thursday 4pm', 'Right after class'],
-        ["Just add it — I'll resolve later", 'Marked as conflict'],
+        ["Just add it - I'll resolve later", 'Marked as conflict'],
       ],
     },
     sceneFinance: {
@@ -154,7 +154,7 @@ export const translations = {
       textA: 'Wednesday afternoon is open and matches your',
       textHi: 'high-focus window',
       ev1: ['BIO 240', 'Lab · Hall C'],
-      ev2: ['Lab report — focused block', 'AI-suggested · matches energy'],
+      ev2: ['Lab report - focused block', 'AI-suggested · matches energy'],
       ev3: ['Run · Storgata loop', 'Personal'],
     },
     sceneBooking: {
@@ -168,7 +168,7 @@ export const translations = {
       copied: 'Copied',
       footA: 'Maya sees the times in ',
       footHi: 'her timezone',
-      footB: ' — Buddy keeps yours straight.',
+      footB: ' - Buddy keeps yours straight.',
     },
     how: {
       eyebrow: 'How it works',
@@ -185,7 +185,7 @@ export const translations = {
       h2a: 'We were tired of apps that ',
       h2b: 'shout for attention.',
       p1: "Calendars expect you to plan. Budget apps expect you to log. To-do apps expect you to remember to open them. Each one is fine on its own. Together, they're a tax on attention.",
-      p2: 'Buddy is the small, calm assistant we wanted for ourselves — one that knows your meetings, your money and your tasks all at once, and only speaks up when it has something useful to say. It looks like an app, but it behaves like a person you trust with the boring parts of your life.',
+      p2: 'Buddy is the small, calm assistant we wanted for ourselves - one that knows your meetings, your money and your tasks all at once, and only speaks up when it has something useful to say. It looks like an app, but it behaves like a person you trust with the boring parts of your life.',
       p3: "We're building it slowly, on iOS first, with a few hundred friends. If you'd like an early invite, drop your email below. We'll be quiet until we have something worth showing you.",
       names: 'Fady & Omar',
       role: 'Co-founders · Cairo',
@@ -195,7 +195,7 @@ export const translations = {
       h2a: 'One quiet place,',
       h2b: 'finally.',
       paragraph:
-        "Get on the waitlist. We'll send one email when Buddy is ready — nothing else.",
+        "Get on the waitlist. We'll send one email when Buddy is ready  nothing else.",
       button: 'Join the waitlist',
       counterSuffix: 'people waiting · iOS first, Android later',
     },
@@ -224,7 +224,7 @@ export const translations = {
       chipAndroid: 'أندرويد لاحقًا',
       titleLine1: 'وقتُك،',
       titleLine2: 'ومالُك،',
-      titleLine3: 'ومهامُّك —',
+      titleLine3: 'ومهامُّك ',
       titleLine4: 'في مكانٍ واحدٍ هادئ.',
       paragraph:
         'بادي مساعد ذكاء اصطناعي شخصي وهادئ يخطّط أسبوعك، ويراقب إنفاقك، ويجيبك بلغةٍ بسيطة. بلا سلاسل عادات، بلا إعلانات، بلا ضجيج.',
@@ -246,7 +246,7 @@ export const translations = {
       ev1Sub: 'قاعة B · أ. لارسن',
       ev2Title: 'قهوة مع مايا',
       ev2Sub: 'مقهى توبي، ستورغاتا',
-      ev3Title: 'وقت بحث — تاريخ',
+      ev3Title: 'وقت بحث  تاريخ',
       ev3Sub: 'مقترح بالذكاء · مرن',
       aiBar: 'انقل وقت بحثي إلى صباح الجمعة',
     },
@@ -265,12 +265,12 @@ export const translations = {
         {
           tag: 'الوقت',
           title: 'مثبّت أم مرن.',
-          body: 'محاضرة العاشرة؟ مثبّتة. وقت البحث؟ مرن. يتعامل بادي معهما بشكلٍ مختلف — ولا يحرّك إلا ما يمكن تحريكه.',
+          body: 'محاضرة العاشرة؟ مثبّتة. وقت البحث؟ مرن. يتعامل بادي معهما بشكلٍ مختلف  ولا يحرّك إلا ما يمكن تحريكه.',
         },
         {
           tag: 'الذكاء',
           title: 'في صلب الشاشة، لا روبوت دردشة.',
-          body: 'يقع شريط الإدخال أسفل كل شاشة. اكتب أو انقر أو تحدّث — وتظهر الإجابات حيث توجد بياناتك.',
+          body: 'يقع شريط الإدخال أسفل كل شاشة. اكتب أو انقر أو تحدّث  وتظهر الإجابات حيث توجد بياناتك.',
         },
         {
           tag: 'المال',
@@ -285,7 +285,7 @@ export const translations = {
         {
           tag: 'الحجز',
           title: 'رابط اجتماعٍ يخصُّك.',
-          body: 'اختر ثلاثة مواعيد، وشارك رابطًا. يرى الطرف الآخر توقيته المحلي — ويحافظ بادي على توقيتك أنت.',
+          body: 'اختر ثلاثة مواعيد، وشارك رابطًا. يرى الطرف الآخر توقيته المحلي  ويحافظ بادي على توقيتك أنت.',
         },
         {
           tag: 'العهد',
@@ -304,7 +304,7 @@ export const translations = {
         {
           tag: '01 · تعارض',
           title: 'يسأل قبل أن يستبدل.',
-          body: 'حين تطلب وقتًا محجوزًا مسبقًا، يقدّم بادي ثلاثة خيارات حقيقية — دون نوافذ «هل أنت متأكد» مدفونة.',
+          body: 'حين تطلب وقتًا محجوزًا مسبقًا، يقدّم بادي ثلاثة خيارات حقيقية  دون نوافذ «هل أنت متأكد» مدفونة.',
         },
         {
           tag: '02 · صوت ← سجل',
@@ -332,7 +332,7 @@ export const translations = {
       opts: [
         ['انقل طبيب الأسنان إلى الجمعة 2 ظهرًا', 'لديك وقت فارغ'],
         ['حدّده الخميس 4 عصرًا', 'بعد المحاضرة مباشرة'],
-        ['أضِفه فقط — سأحلّه لاحقًا', 'مُعلَّم كتعارض'],
+        ['أضِفه فقط  سأحلّه لاحقًا', 'مُعلَّم كتعارض'],
       ],
     },
     sceneFinance: {
@@ -352,7 +352,7 @@ export const translations = {
       textA: 'بعد ظهر الأربعاء متاح ويطابق',
       textHi: 'فترة تركيزك العالي',
       ev1: ['BIO 240', 'مختبر · قاعة C'],
-      ev2: ['تقرير المختبر — فترة تركيز', 'مقترح بالذكاء · يطابق طاقتك'],
+      ev2: ['تقرير المختبر  فترة تركيز', 'مقترح بالذكاء · يطابق طاقتك'],
       ev3: ['جري · حلقة ستورغاتا', 'شخصي'],
     },
     sceneBooking: {
@@ -366,7 +366,7 @@ export const translations = {
       copied: 'تم النسخ',
       footA: 'ترى مايا الأوقات بـ',
       footHi: 'توقيتها المحلي',
-      footB: ' — ويحافظ بادي على توقيتك.',
+      footB: '  ويحافظ بادي على توقيتك.',
     },
     how: {
       eyebrow: 'كيف يعمل',
@@ -383,7 +383,7 @@ export const translations = {
       h2a: 'سئمنا التطبيقات التي ',
       h2b: 'تصرخ طلبًا للانتباه.',
       p1: 'التقاويم تتوقّع منك أن تخطّط. وتطبيقات الميزانية تتوقّع منك أن تسجّل. وتطبيقات المهام تتوقّع منك أن تتذكّر فتحها. كلٌّ منها جيّدٌ بمفرده. لكنها مجتمعةً ضريبةٌ على الانتباه.',
-      p2: 'بادي هو المساعد الصغير الهادئ الذي أردناه لأنفسنا — يعرف اجتماعاتك وأموالك ومهامك دفعةً واحدة، ولا يتحدّث إلا حين يملك ما يستحق قوله. يبدو كتطبيق، لكنه يتصرّف كشخصٍ تأتمنه على تفاصيل حياتك المملّة.',
+      p2: 'بادي هو المساعد الصغير الهادئ الذي أردناه لأنفسنا  يعرف اجتماعاتك وأموالك ومهامك دفعةً واحدة، ولا يتحدّث إلا حين يملك ما يستحق قوله. يبدو كتطبيق، لكنه يتصرّف كشخصٍ تأتمنه على تفاصيل حياتك المملّة.',
       p3: 'نبنيه ببطء، على iOS أولًا، مع بضع مئات من الأصدقاء. إن أردت دعوةً مبكرة، اترك بريدك أدناه. وسنبقى صامتين حتى يكون لدينا ما يستحق أن نُريك إياه.',
       names: 'فادي وعمر',
       role: 'المؤسّسان · القاهرة',
@@ -393,7 +393,7 @@ export const translations = {
       h2a: 'مكانٌ هادئٌ واحد،',
       h2b: 'أخيرًا.',
       paragraph:
-        'انضم لقائمة الانتظار. سنرسل رسالةً واحدة حين يصبح بادي جاهزًا — لا شيء غير ذلك.',
+        'انضم لقائمة الانتظار. سنرسل رسالةً واحدة حين يصبح بادي جاهزًا  لا شيء غير ذلك.',
       button: 'انضم لقائمة الانتظار',
       counterSuffix: 'شخصٍ بالانتظار · iOS أولًا، أندرويد لاحقًا',
     },
